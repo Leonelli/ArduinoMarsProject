@@ -59,143 +59,135 @@ NextDotDash:
 
 
 String ascii_to_hex_convert(char c){
-  String hex_value;
-
-          if(isAscii(c)){
-
   if(c =='A'){
         Serial.println("41");
-        hex_value="41";
+        rotateServo("41");
 
   }
 
  else if(c=='B'){
         Serial.println("42");
-        hex_value="42";
+        rotateServo("42");
   }
 
 else if(c=='C'){
         Serial.println("43");
-        hex_value="43";
+        rotateServo("43");
   }
 
 else if(c=='D'){
         Serial.println("44");
-        hex_value="44";
+        rotateServo("44");
   }
 
 else if(c=='E'){
         Serial.println("45");
-        hex_value="45";
+        rotateServo("45");
 }
 else if(c=='F'){
         Serial.println("46");
-        hex_value="46";
+        rotateServo("46");
   }
 
 else if(c=='G'){
         Serial.println("47");
-        hex_value="47";
+        rotateServo("47");
   }
 
 else if(c=='H'){
         Serial.println("48");
-        hex_value="48";
+        rotateServo("48");
   }
 
 else if(c=='I'){
         Serial.println("49");
-        hex_value="49";
+        rotateServo("49");
   }
 
 else if(c=='J'){
         Serial.println("4A");
-        hex_value="4A";
+        rotateServo("4A");
   }
 
 else if(c=='K'){
         Serial.println("4B");
-        hex_value="4B";
+        rotateServo("4B");
 }
 
 else if(c=='L'){
         Serial.println("4C");
-        hex_value="4C";
+        rotateServo("4C");
   }
 
 else if(c=='M'){
         Serial.println("4D");
-        hex_value="4D";
+        rotateServo("4D");
   }
 
 else if(c=='N'){
         Serial.println("4E");
-        hex_value="4E";
+        rotateServo("4E");
   }
 
 else if(c=='O'){
         Serial.println("4F");
-        hex_value="4F";
+        rotateServo("4F");
   }
 
 else if(c=='P'){
         Serial.println("50");
-        hex_value="50";
+        rotateServo("50");
   }
 
 else if(c=='Q'){
         Serial.println("51");
-        hex_value="51";
+        rotateServo("51");
   }
 else if(c=='R'){
         Serial.println("52");
-        hex_value="52";
+        rotateServo("52");
   }
 
  else if(c=='S'){
         Serial.println("53");
-        hex_value="53";
+        rotateServo("53");
   }
 
  else if(c=='T'){
         Serial.println("54");
-        hex_value="54";
+        rotateServo("54");
   }
 
  else if(c=='U'){
         Serial.println("55");
-        hex_value="55";
+        rotateServo("55");
   }
 
  else if(c=='V'){
         Serial.println("56");
-        hex_value="56";
+        rotateServo("56");
   }
 
  else if(c=='W'){
         Serial.println("57");
-        hex_value="57";
+        rotateServo("57");
   }
 
  else if(c=='X'){
         Serial.println("58");
-        hex_value="58";
+        rotateServo("58");
   }
 
  else if(c=='Y'){
         Serial.println("59");
-        hex_value="59";
+        rotateServo("59");
   }
 
  else if(c=='Z'){
         Serial.println("5A");
-        hex_value="5A";
+        rotateServo("5A");
   }
-          }
-else{
-    Serial.println("NOT WORKING CHAR");
-}
-  //rotateServo(hex_value);
+  
 }   
 
 
@@ -330,8 +322,8 @@ void convertor()
       {
         char c = char('A' + i);
         Serial.println(c);
-         ascii_to_hex_convert(c);
-         break;
+        ascii_to_hex_convert(c);
+        break;
        
       }
       i++;
