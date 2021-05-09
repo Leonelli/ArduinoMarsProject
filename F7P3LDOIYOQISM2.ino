@@ -330,6 +330,9 @@ void convertor()
           ascii_to_hex_convert(c);
           break;
         }
+        else{
+            Serial.println(c + " no ascii char");          
+        }
       }
       i++;
     }
