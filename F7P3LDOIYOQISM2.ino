@@ -321,6 +321,7 @@ void convertor()
       {
         char c = char('A' + i);
         Serial.println(c);
+        code = "";                  
         ascii_to_hex_convert(c);
         break;
        
