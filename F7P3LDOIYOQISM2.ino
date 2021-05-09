@@ -60,7 +60,7 @@ NextDotDash:
 
 String ascii_to_hex_convert(char c){
   String hex_value;
-  if(c=='A'){
+  if(c =='A'){
         Serial.println("41");
         hex_value="41";
 
@@ -188,7 +188,9 @@ else if(c=='R'){
         Serial.println("5A");
         hex_value="5A";
   }
-
+else{
+    Serial.println("NOT WORKING CHAR");
+}
   //rotateServo(hex_value);
 }   
 
