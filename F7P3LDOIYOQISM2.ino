@@ -153,25 +153,18 @@ void rotateServo(String hex_value_returned){
 void ascii_to_hex_convert(char c){     
   Serial.println(c);
   if(c =='A'){ 
- 
         Serial.println("41");
         rotateServo("41");
-                Serial.println("function running");
-
   }
 
   if(c=='B'){
         Serial.println("42");
         rotateServo("42");
-                Serial.println("function running");
-
   }
 
  if(c=='C'){
         Serial.println("43");
         rotateServo("43");
-                Serial.println("function running");
-
   }
 
  if(c=='D'){
@@ -182,8 +175,6 @@ void ascii_to_hex_convert(char c){
  if(c=='E'){
         Serial.println("45");
         rotateServo("45");
-                Serial.println("function running");
-
 }
  if(c=='F'){
         Serial.println("46");
@@ -243,14 +234,10 @@ void ascii_to_hex_convert(char c){
  if(c=='Q'){
         Serial.println("51");
         rotateServo("51");
-        Serial.println("function running");
-
   }
  if(c=='R'){
         Serial.println("52");
         rotateServo("52");
-                Serial.println("function running");
-
   }
 
   if(c=='S'){
@@ -292,8 +279,6 @@ void ascii_to_hex_convert(char c){
         Serial.println("5A");
         rotateServo("5A");
   }
-  
-  
 }   
 
 
