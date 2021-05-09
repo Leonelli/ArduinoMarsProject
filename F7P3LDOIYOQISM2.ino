@@ -62,7 +62,6 @@ String ascii_to_hex_convert(char c){
   if(c =='A'){
         Serial.println("41");
         rotateServo("41");
-
   }
 
  else if(c=='B'){
