@@ -331,7 +331,8 @@ void convertor()
           break;
         }
         else{
-            Serial.println(c + " no ascii char");          
+            Serial.println(c + " no ascii char");   
+            break;       
         }
       }
       i++;
