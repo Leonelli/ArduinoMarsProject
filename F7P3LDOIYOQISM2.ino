@@ -309,11 +309,11 @@ void convertor()
                              ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "E"
                             };
   int i = 0;
-  if (code == ".-.-.-")
+  /*if (code == ".-.-.-")
   {
     Serial.print(".");        //for break
   }
-  else
+  else*/
   {
     while (letters[i] != "E")  //loop for comparing input code with letters array
     {
