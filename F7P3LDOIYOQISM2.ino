@@ -6,7 +6,7 @@ int index_parola=0;
 char value_for_rotation_1;
 char value_for_rotation_2;
 //////SERVO
-int servoPin = 5;
+int servoPin = D7;
 int angle=0;
 char c;
 Servo servo;
@@ -14,8 +14,8 @@ Servo servo;
 
 
 unsigned long signal_len,t1,t2;   //time for which button is pressed
-int inputPin = 2;                 //input pin for push button
-int ledPin = 4;                   //outpu pin for LED
+int inputPin = D5;                 //input pin for push button
+int ledPin = D6;                   //outpu pin for LED
 String code = "";                 //string in which one alphabet is stored
 
 void setup() {
@@ -67,82 +67,82 @@ void rotateServo(String hex_value_returned){
        if(value_for_rotation_1=='F'){
           servo.write(11.5);  
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(11.5);              
        }
          else if(value_for_rotation_1=='E'){
           servo.write(23); 
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(23);              
        }
          else if(value_for_rotation_1=='D'){
           servo.write(34.5);  
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(34.5);              
        }
          else if(value_for_rotation_1=='C'){
           servo.write(46);  
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(46);              
        }
          else if(value_for_rotation_1=='B'){
           servo.write(57.5); 
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(57.5);              
        }
          else if(value_for_rotation_1=='A'){
           servo.write(69);   
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(69);              
        }
          else if(value_for_rotation_1=='9'){
           servo.write(80.5); 
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(80.5);              
        }
          else if(value_for_rotation_1=='8'){
           servo.write(92);   
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(92);              
        }
          else if(value_for_rotation_1=='7'){
           servo.write(103.5); 
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(103.5);              
        }
          else if(value_for_rotation_1=='6'){
           servo.write(115);  
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(115);              
        }
          else if(value_for_rotation_1=='5'){
           servo.write(126.5);  
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(126.5);              
        }
          else if(value_for_rotation_1=='4'){
           servo.write(138);   
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(138);              
        }
          else if(value_for_rotation_1=='3'){
           servo.write(149.5);   
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(149.5);              
        }
          else if(value_for_rotation_1=='2'){
           servo.write(161);   
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(161);              
        }
          else if(value_for_rotation_1=='1'){
           servo.write(172.5); 
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(172.5);              
        }
          else if(value_for_rotation_1=='0'){
           servo.write(180); 
           delay(1000); 
-          ResetPosition(value_for_rotation_1);              
+          ResetPosition(180);              
        }
      
     }
@@ -153,18 +153,25 @@ void rotateServo(String hex_value_returned){
 void ascii_to_hex_convert(char c){     
   Serial.println(c);
   if(c =='A'){ 
+ 
         Serial.println("41");
         rotateServo("41");
+                Serial.println("function running");
+
   }
 
   if(c=='B'){
         Serial.println("42");
         rotateServo("42");
+                Serial.println("function running");
+
   }
 
  if(c=='C'){
         Serial.println("43");
         rotateServo("43");
+                Serial.println("function running");
+
   }
 
  if(c=='D'){
@@ -175,6 +182,8 @@ void ascii_to_hex_convert(char c){
  if(c=='E'){
         Serial.println("45");
         rotateServo("45");
+                Serial.println("function running");
+
 }
  if(c=='F'){
         Serial.println("46");
@@ -202,7 +211,7 @@ void ascii_to_hex_convert(char c){
   }
 
  if(c=='K'){
-        Serial.println("4B");
+        Serial.println("4B"); 
         rotateServo("4B");
 }
 
@@ -234,10 +243,14 @@ void ascii_to_hex_convert(char c){
  if(c=='Q'){
         Serial.println("51");
         rotateServo("51");
+        Serial.println("function running");
+
   }
  if(c=='R'){
         Serial.println("52");
         rotateServo("52");
+                Serial.println("function running");
+
   }
 
   if(c=='S'){
@@ -279,6 +292,8 @@ void ascii_to_hex_convert(char c){
         Serial.println("5A");
         rotateServo("5A");
   }
+  
+  
 }   
 
 
@@ -294,11 +309,11 @@ char readio()
 {
   if (signal_len < 600 && signal_len > 50)
   {
-    return '.';                        //if button press less than 0.6sec, it is a dot
+    return '.';                        //if button press less than 0.6 sec, it is a dot
   }
   else if (signal_len > 600)
   {
-    return '-';                        //if button press more than 0.6sec, it is a dash
+    return '-';                        //if button press more than 0.6 sec, it is a dash
   }
 }
 
