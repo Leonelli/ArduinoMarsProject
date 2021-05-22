@@ -59,27 +59,36 @@ void loop()
 ///////keyboard manager
   char pressed = keypad.getKey(); // TAKING THE INPUT FROM KEYPAD
     if (pressed != NO_KEY){
-    
-    
 ///////
 
 
-///////morse button manager
-NextDotDash:
-
+///////morse keypad manager
   if(pressed=='0'){
     Serial.println(pressed);
+    digitalWrite(ledPin, HIGH);               //LED on while button pressed
+    delay(200);
+    digitalWrite(ledPin, LOW);                //LED off on button release
     code += '.';                       //function to read dot or dash
   }
   if(pressed=='1'){
     Serial.println(pressed);
+    digitalWrite(ledPin, HIGH);               //LED on while button pressed
+    delay(200);
+    digitalWrite(ledPin, LOW);                //LED off on button release
+
     code += '-';                       //function to read dot or dash
   }
   if(pressed=='#'){
+    digitalWrite(ledPin, HIGH);               //LED on while button pressed
+    delay(200);
+    digitalWrite(ledPin, LOW);                //LED off on button release
     Serial.println(code);
     convertor();   
   }
   if(pressed=='*'){
+    digitalWrite(ledPin, HIGH);               //LED on while button pressed
+    delay(200);
+    digitalWrite(ledPin, LOW);                //LED off on button release
     StampaParola();
     parola="";
   }
