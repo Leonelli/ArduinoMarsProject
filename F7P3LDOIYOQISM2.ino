@@ -6,7 +6,7 @@ int index_parola=0;
 char value_for_rotation_1;
 char value_for_rotation_2;
 //////SERVO
-int servoPin = D7;
+int servoPin = 4;
 int angle=0;
 char c;
 Servo servo;
@@ -14,8 +14,8 @@ Servo servo;
 
 
 unsigned long signal_len,t1,t2;   //time for which button is pressed
-int inputPin = D5;                 //input pin for push button
-int ledPin = D6;                   //outpu pin for LED
+int inputPin = 8;                 //input pin for push button
+int ledPin = 2;                   //outpu pin for LED
 String code = "";                 //string in which one alphabet is stored
 
 void setup() {
@@ -292,6 +292,7 @@ void ascii_to_hex_convert(char c){
         Serial.println("5A");
         rotateServo("5A");
   }
+
   
   
 }   
