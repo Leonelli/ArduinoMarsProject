@@ -14,7 +14,7 @@ Servo servo;
 
 
 unsigned long signal_len,t1,t2;   //time for which button is pressed
-int inputPin = 8;                 //input pin for push button
+int inputPin = 5;                 //input pin for push button
 int ledPin = 2;                   //outpu pin for LED
 String code = "";                 //string in which one alphabet is stored
 
