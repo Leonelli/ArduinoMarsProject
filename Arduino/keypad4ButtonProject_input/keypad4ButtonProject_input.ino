@@ -80,13 +80,17 @@ void loop() {
   if (sensorValUP == LOW) {
     Serial.print('-');
     digitalWrite(ledPin, HIGH);               //LED on while button pressed
-    delay(200);
+    delay(1000);
     digitalWrite(ledPin, LOW);                //LED off on button release
-
     code += '-';                       //function to read dot or dash
   }
   if (sensorValRIGHT == LOW) {
     digitalWrite(ledPin, HIGH);               //LED on while button pressed
+    delay(200);
+    digitalWrite(ledPin, LOW);                //LED off on button release
+        delay(200);
+
+     digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
     digitalWrite(ledPin, LOW);                //LED off on button release
     Serial.println();
@@ -96,6 +100,16 @@ void loop() {
   }
   if (sensorValDOWN == LOW) {
     digitalWrite(ledPin, HIGH);               //LED on while button pressed
+    delay(200);
+    digitalWrite(ledPin, LOW);                //LED off on button release
+        delay(200);
+
+     digitalWrite(ledPin, HIGH);               //LED on while button pressed
+    delay(200);
+    digitalWrite(ledPin, LOW);                //LED off on button release
+        delay(200);
+
+     digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
     digitalWrite(ledPin, LOW);                //LED off on button release
     Serial.println();
