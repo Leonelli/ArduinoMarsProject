@@ -64,14 +64,14 @@ void loop()
 
 ///////morse keypad manager
   if(pressed=='0'){
-    Serial.println(pressed);
+    Serial.print('.');
     digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
     digitalWrite(ledPin, LOW);                //LED off on button release
     code += '.';                       //function to read dot or dash
   }
   if(pressed=='1'){
-    Serial.println(pressed);
+    Serial.print('-');
     digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
     digitalWrite(ledPin, LOW);                //LED off on button release
@@ -82,13 +82,16 @@ void loop()
     digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
     digitalWrite(ledPin, LOW);                //LED off on button release
-    Serial.println(code);
+    Serial.println();
+    //Serial.println("morse code" + code);
+    Serial.println("processing code...");
     convertor();   
   }
   if(pressed=='*'){
     digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
     digitalWrite(ledPin, LOW);                //LED off on button release
+    Serial.println();
     StampaParola();
     parola="";
   }
@@ -103,11 +106,11 @@ void StampaParola(){
 
 
 void rotateServo(String hex_value_returned){
-    Serial.println("hex_value_returned:"+hex_value_returned);
+    //Serial.println("hex_value_returned:"+hex_value_returned);
 
     for (int n = 0; n <= 1; n++) {
       value_for_rotation_1 = hex_value_returned.charAt(n);
-      Serial.println(value_for_rotation_1);   
+      //Serial.println(value_for_rotation_1);   
 
        if(value_for_rotation_1=='F'){
           servo.write(11.5);  
@@ -191,31 +194,28 @@ void rotateServo(String hex_value_returned){
        }
      
     }
+    Serial.println("insert next code...");
+
 }
 
 
 
 void ascii_to_hex_convert(char c){     
-  Serial.println(c);
+  //Serial.println(c);
   if(c =='A'){ 
- 
         Serial.println("41");
         rotateServo("41");
-                Serial.println("function running");
-
   }
 
   if(c=='B'){
         Serial.println("42");
         rotateServo("42");
-                Serial.println("function running");
-
   }
 
  if(c=='C'){
         Serial.println("43");
         rotateServo("43");
-                Serial.println("function running");
+              
 
   }
 
@@ -227,7 +227,6 @@ void ascii_to_hex_convert(char c){
  if(c=='E'){
         Serial.println("45");
         rotateServo("45");
-                Serial.println("function running");
 
 }
  if(c=='F'){
@@ -288,13 +287,11 @@ void ascii_to_hex_convert(char c){
  if(c=='Q'){
         Serial.println("51");
         rotateServo("51");
-        Serial.println("function running");
 
   }
  if(c=='R'){
         Serial.println("52");
         rotateServo("52");
-                Serial.println("function running");
 
   }
 
