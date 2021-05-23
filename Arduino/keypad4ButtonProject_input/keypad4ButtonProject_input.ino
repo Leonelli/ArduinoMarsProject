@@ -22,10 +22,13 @@ int LEFT = 8;
 int UP = 9;
 int RIGHT = 10;
 int DOWN = 11;
+
 int buttonStateLEFT = 0;
 int buttonStateUP = 0;
 int buttonStateRIGHT = 0;
 int buttonStateDOWN = 0;
+
+int lastButtonState=0;
 
 unsigned long signal_len, t1, t2; //time for which button is pressed
 int inputPin = 5; //input pin for push button
@@ -33,11 +36,6 @@ int ledPin = 2; //outpu pin for LED
 String code = ""; //string in which one alphabet is stored
 
 String parola = "";
-
-int buttonStateLEFT_prev;
-  int buttonStateUP_prev ;
-  int buttonStateRIGHT_prev ;
-  int buttonStateDOWN_prev ;
   
 void setup() {
   Serial.begin(9600);
@@ -47,13 +45,7 @@ void setup() {
   pinMode(LEFT, INPUT_PULLUP);
   pinMode(UP, INPUT_PULLUP);
   pinMode(RIGHT, INPUT_PULLUP);
-  pinMode(DOWN, INPUT_PULLUP);
-
-
-  buttonStateLEFT_prev = digitalRead(LEFT);
-  buttonStateUP_prev = digitalRead(UP);
-  buttonStateRIGHT_prev = digitalRead(RIGHT);
-  buttonStateDOWN_prev = digitalRead(DOWN);  
+  pinMode(DOWN, INPUT_PULLUP);  
 
   ///////servo setup
   servo.attach(servoPin);
@@ -70,43 +62,50 @@ void loop() {
   buttonStateRIGHT = digitalRead(RIGHT);
   buttonStateDOWN = digitalRead(DOWN);
 
+  int sensorValLEFT = digitalRead(LEFT);
+  int sensorValUP = digitalRead(UP);
+  int sensorValRIGHT = digitalRead(RIGHT);
+  int sensorValDOWN = digitalRead(DOWN);
 
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonStateLEFT == HIGH) {
+
+
+
+  if (sensorValLEFT == LOW) {
     Serial.print('.');
-    digitalWrite(ledPin, HIGH); //LED on while button pressed
+    digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
-    digitalWrite(ledPin, LOW); //LED off on button release
-    code += '.';
+    digitalWrite(ledPin, LOW);                //LED off on button release
+    code += '.';                       //function to read dot or dash
   }
-
-  if (buttonStateUP == HIGH) {
+  if (sensorValUP == LOW) {
     Serial.print('-');
-    digitalWrite(ledPin, HIGH); //LED on while button pressed
+    digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
-    digitalWrite(ledPin, LOW); //LED off on button release
+    digitalWrite(ledPin, LOW);                //LED off on button release
 
-    code += '-';
+    code += '-';                       //function to read dot or dash
   }
-
-  if (buttonStateRIGHT == HIGH) {
-    digitalWrite(ledPin, HIGH); //LED on while button pressed
+  if (sensorValRIGHT == LOW) {
+    digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
-    digitalWrite(ledPin, LOW); //LED off on button release
+    digitalWrite(ledPin, LOW);                //LED off on button release
     Serial.println();
     //Serial.println("morse code" + code);
     Serial.println("processing code...");
-    convertor();
+    convertor();   
   }
-
-  if (buttonStateDOWN == HIGH ) {
-    digitalWrite(ledPin, HIGH); //LED on while button pressed
+  if (sensorValDOWN == LOW) {
+    digitalWrite(ledPin, HIGH);               //LED on while button pressed
     delay(200);
-    digitalWrite(ledPin, LOW); //LED off on button release
+    digitalWrite(ledPin, LOW);                //LED off on button release
     Serial.println();
     StampaParola();
-    parola = "";
+    parola="";
   }
+
+
+
+  
 
 }
 ///////////
