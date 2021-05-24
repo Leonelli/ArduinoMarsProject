@@ -37,7 +37,8 @@ void loop() {
 NextDotDash:
   int ldrStatus = analogRead(ldrPin);
   //Serial.println(ldrStatus);
-
+  signal_len=0;
+  
   if(!lightOn){
     if (ldrStatus <= 230) {
       t1 = millis(); //time at button press
@@ -58,6 +59,7 @@ NextDotDash:
    if (signal_len > 100)                      //to account for switch debouncing
   {
     code += readio();                       //function to read dot or dash
+    Serial.println("code:" + code);
   }
   if ((millis() - t2) < 1000)           //if time between button press greater than 0.5sec, skip loop and go to next alphabet
   {     
@@ -161,21 +163,17 @@ void ascii_to_hex_convert(char c) {
 
     Serial.println("41");
     rotateServo("41");
-    Serial.println("function running");
-
   }
 
   if (c == 'B') {
     Serial.println("42");
     rotateServo("42");
-    Serial.println("function running");
 
   }
 
   if (c == 'C') {
     Serial.println("43");
     rotateServo("43");
-    Serial.println("function running");
 
   }
 
@@ -187,7 +185,6 @@ void ascii_to_hex_convert(char c) {
   if (c == 'E') {
     Serial.println("45");
     rotateServo("45");
-    Serial.println("function running");
 
   }
   if (c == 'F') {
@@ -248,13 +245,11 @@ void ascii_to_hex_convert(char c) {
   if (c == 'Q') {
     Serial.println("51");
     rotateServo("51");
-    Serial.println("function running");
 
   }
   if (c == 'R') {
     Serial.println("52");
     rotateServo("52");
-    Serial.println("function running");
 
   }
 
