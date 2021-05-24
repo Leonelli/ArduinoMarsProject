@@ -6,7 +6,7 @@ int index_parola = 0;
 char value_for_rotation_1;
 char value_for_rotation_2;
 //////SERVO
-int servoPin = 4;
+int servoPin = 4;q
 int angle = 0;
 char c;
 Servo servo;
